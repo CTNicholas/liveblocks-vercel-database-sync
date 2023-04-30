@@ -23,7 +23,9 @@
 {#if !root}
   Loading
 {:else}
-  <CollaborativeForm room={room} article={root.get("article")} />
+  <div class="">
+    <CollaborativeForm room={room} article={root.get("article")} />
+  </div>
 {/if}
 
 <main>

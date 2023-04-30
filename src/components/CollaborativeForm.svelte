@@ -18,31 +18,47 @@
   //$: console.log(article?.toImmutable());
 </script>
 
-<input
-  type="text"
-  value={article.get("title")}
-  on:input={(e) => article.set("title", e.target.value)}
-/>
+<div class="max-w-screen-md mx-auto flex flex-col mt-12">
+  <div class="flex justify-between">
 
-<input
-  type="text"
-  value={article.get("subtitle")}
-  on:input={(e) => article.set("subtitle", e.target.value)}
-/>
+    <input
+      type="date"
+      value={article.get("date")}
+      on:input={(e) => article.set("date", new Date(e.target.value).getTime())}
+    />
 
-<input
-  type="text"
-  value={article.get("slug")}
-  on:input={(e) => article.set("slug", e.target.value)}
-/>
+    <div>
+      <label for="publish">Publish</label>
+      <input
+        id="publish"
+        name="publish"
+        type="checkbox"
+        checked={article.get("publish")}
+        on:input={(e) => article.set("publish", e.target.checked)}
+      />
+    </div>
+  </div>
 
-<input
-  type="date"
-  value={article.get("date")}
-  on:input={(e) => article.set("date", new Date(e.target.value).getTime())}
-/>
+  <input
+    placeholder="Add title"
+    class="text-6xl font-semibold tracking-tight mt-8 border-b-2 border-transparent focus:border-gray-300 outline-none"
+    type="text"
+    value={article.get("title")}
+    on:input={(e) => article.set("title", e.target.value)}
+  />
 
-<textarea
-  on:input={(e) => article.set("content", e.target.value)}
->{article.get("content")}</textarea>
+  <input
+    placeholder="Add subtitle"
+    class="text-4xl font-medium mt-8 border-b-2 border-transparent focus:border-gray-300 outline-none"
+    type="text"
+    value={article.get("subtitle")}
+    on:input={(e) => article.set("subtitle", e.target.value)}
+  />
+
+  <textarea
+    placeholder="Enter content"
+    class="text-xl tracking-tight mt-4 outline-none h-auto"
+    on:input={(e) => article.set("content", e.target.value)}
+  >{article.get("content")}</textarea>
+</div>
 

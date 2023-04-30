@@ -15,8 +15,8 @@
           title: "",
           subtitle: "",
           content: "",
-          slug: "",
           date: 0,
+          publish: false,
         }),
       },
     }) as Room;

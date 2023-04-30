@@ -17,8 +17,8 @@ export type Article = LiveObject<{
   title: string;
   subtitle: string;
   content: string;
-  slug: string;
   date: number;
+  publish: boolean;
 }>;
 
 type Storage = {

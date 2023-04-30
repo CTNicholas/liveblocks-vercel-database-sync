@@ -2,7 +2,9 @@
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: { sans: '"Source Serif 4", serif' },
+    },
   },
   plugins: [],
 };
