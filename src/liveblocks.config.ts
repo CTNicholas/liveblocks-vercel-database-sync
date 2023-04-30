@@ -26,4 +26,3 @@ type Storage = {
 };
 
 export type Room = LiveblocksRoom<Presence, Storage, UserMeta, RoomEvent>;
-export type Root = LiveObject<Storage>;
