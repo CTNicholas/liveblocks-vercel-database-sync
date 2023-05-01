@@ -35,6 +35,7 @@
 		"@fontsource/source-serif-4": "^4.5.17",
 		"@liveblocks/client": "^1.0.6",
 		"@liveblocks/node": "^1.0.6",
-		"@vercel/postgres": "^0.1.2"
+		"@vercel/postgres": "^0.1.2",
+		"nanoid": "^4.0.2"
 	}
 }

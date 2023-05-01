@@ -14,8 +14,6 @@
   });
 
   onDestroy(unsub);
-
-  //$: console.log(article?.toImmutable());
 </script>
 
 <div class="max-w-screen-md mx-auto flex flex-col mt-8 px-6">

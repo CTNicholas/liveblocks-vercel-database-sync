@@ -2,6 +2,7 @@
   import { type Room } from "../liveblocks.config";
   import { onMount } from "svelte";
   import CollaborativeForm from "./CollaborativeForm.svelte";
+  import Loading from "./Loading.svelte";
 
   /**
    * The main Liveblocks code for the example.
@@ -21,7 +22,7 @@
 </script>
 
 {#if !root}
-  Loading
+  <Loading />
 {:else}
   <div class="">
     <CollaborativeForm room={room} article={root.get("article")} />

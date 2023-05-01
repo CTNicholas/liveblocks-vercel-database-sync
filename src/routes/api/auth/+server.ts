@@ -6,6 +6,7 @@ const API_KEY_WARNING =
   `Create an \`.env.local\` file and add your secret key from https://liveblocks.io/dashboard/apikeys as the \`VITE_LIVEBLOCKS_SECRET_KEY\` environment variable.\n` +
   `Learn more: https://github.com/liveblocks/liveblocks/tree/main/examples/sveltekit-live-cursors#getting-started.`;
 
+// Authorise Liveblocks
 export async function POST({ request }: RequestEvent) {
   const { room } = await request.json();
 
