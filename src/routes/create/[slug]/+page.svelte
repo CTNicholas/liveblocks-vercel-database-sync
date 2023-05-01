@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { client, type Room } from "../liveblocks.config";
+  import { client, type Room } from "../../../liveblocks.config";
   import { onDestroy, onMount } from "svelte";
-  import App from "../components/App.svelte";
+  import App from "../../../components/App.svelte";
   import { LiveObject } from "@liveblocks/client";
+  import { page } from "$app/stores";
 
-  const roomId = "vercel-database-sync";
+  const roomId = $page.params.slug;
   let room: Room;
 
   onMount(() => {
