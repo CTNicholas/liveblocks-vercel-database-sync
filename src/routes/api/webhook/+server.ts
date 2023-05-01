@@ -16,7 +16,7 @@ export async function POST({ request }: RequestEvent) {
     `;
     */
 
-  return new Response(JSON.stringify({ success: true }), { status: 400 });
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }
 
 /*
