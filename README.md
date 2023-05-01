@@ -12,4 +12,4 @@ using [webhooks](https://liveblocks.io/docs/guides/webhooks).
 - Copy your **secret** key from the [dashboard](https://liveblocks.io/dashboard/apikeys)
 - Create an `.env.local` file and add your **secret** key as the `VITE_LIVEBLOCKS_SECRET_KEY` environment
   variable
-- Run `npm run dev` and go to [http://localhost:3000](http://localhost:3000)
+- Run `npm run dev` and go to [http://localhost:5173](http://localhost:5173)
