@@ -25,7 +25,7 @@
       class="text-sm"
       type="date"
       value={article.get("date")}
-      on:input={(e) => article.set("date", new Date(e.target.value).getTime())}
+      on:input={(e) => article.set("date", new Date(e.target.value).getTime() / 1000)}
     />
 
     <div>
