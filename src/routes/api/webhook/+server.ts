@@ -33,17 +33,16 @@ export async function POST({ request }: RequestEvent) {
     throw new Error("No article data");
   }
 
-  const { title, subtitle, content, date, publish } = storage.data.article.data;
+  const { title, content, date, publish } = storage.data.article.data;
 
   console.log(data, storage.data.article.data);
 
   const sqlResponse =
-    await sql`INSERT INTO articles (id, title, subtitle, content, date, publish)
-VALUES (${data.roomId}, ${title}, ${subtitle}, ${content}, ${date}, ${publish})
+    await sql`INSERT INTO articles (id, title, content, date, publish)
+VALUES (${data.roomId}, ${title}, ${content}, ${date}, ${publish})
 ON CONFLICT (id)
 DO UPDATE SET
   title = EXCLUDED.title,
-  subtitle = EXCLUDED.subtitle,
   content = EXCLUDED.content,
   date = EXCLUDED.date,
   publish = EXCLUDED.publish;

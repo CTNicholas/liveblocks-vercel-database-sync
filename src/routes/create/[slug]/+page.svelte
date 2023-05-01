@@ -14,7 +14,6 @@
       initialStorage: {
         article: new LiveObject({
           title: "",
-          subtitle: "",
           content: "",
           date: Date.now(),
           publish: false,

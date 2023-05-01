@@ -15,7 +15,6 @@ type RoomEvent = Record<string, never>;
 
 export type Article = LiveObject<{
   title: string;
-  subtitle: string;
   content: string;
   date: number;
   publish: boolean;
