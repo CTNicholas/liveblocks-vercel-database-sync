@@ -39,7 +39,7 @@ export async function POST({ request }: RequestEvent) {
 
   const sqlResponse =
     await sql`INSERT INTO articles (id, title, subtitle, content, date, publish)
-VALUES ('${data.roomId}', '${title}', '${subtitle}', '${content}', ${date}, ${publish})
+VALUES (${data.roomId}, ${title}, ${subtitle}, ${content}, ${date}, ${publish})
 ON CONFLICT (id)
 DO UPDATE SET
   title = EXCLUDED.title,
