@@ -18,13 +18,13 @@
   //$: console.log(article?.toImmutable());
 </script>
 
-<div class="max-w-screen-md mx-auto flex flex-col mt-8 mx-6">
+<div class="max-w-screen-md mx-auto flex flex-col mt-8 px-6">
   <div class="flex justify-between">
 
     <input
       class="text-sm"
       type="date"
-      value={article.get("date")}
+      value={new Date(article.get("date") * 1000).toISOString().split('T')[0]}
       on:input={(e) => article.set("date", new Date(e.target.value).getTime() / 1000)}
     />
 
@@ -43,7 +43,7 @@
 
   <input
     placeholder="Add title"
-    class="text-4xl font-extrabold tracking-tight mt-6 border-b-2 border-transparent focus:border-gray-300 outline-none"
+    class="text-4xl font-extrabold tracking-tight mt-6 outline-none"
     type="text"
     value={article.get("title")}
     on:input={(e) => article.set("title", e.target.value)}

@@ -16,7 +16,7 @@
           title: "",
           subtitle: "",
           content: "",
-          date: 0,
+          date: Date.now(),
           publish: false,
         }),
       },
