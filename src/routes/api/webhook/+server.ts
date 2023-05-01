@@ -1,12 +1,48 @@
-//import { sql } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 //import { redirect, type RequestEvent } from "@sveltejs/kit";
 
 import type { RequestEvent } from "@sveltejs/kit";
 
+const API_KEY = import.meta.env.VITE_LIVEBLOCKS_SECRET_KEY as string;
+
 export async function POST({ request }: RequestEvent) {
   console.log("webhook request:");
 
-  console.log(request.body);
+  const { data } = await request.json();
+
+  if (!data) {
+    throw new Error("Cannot get data from webhook");
+  }
+
+  const response = await fetch(
+    `https://api.liveblocks.io/v2/rooms/${data.roomId}/storage`,
+    {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Error getting storage");
+  }
+
+  const storage = await response.json();
+
+  if (!storage?.data?.article?.data) {
+    throw new Error("No article data");
+  }
+
+  const { title, subtitle, content, date, publish } = storage.data.article.data;
+
+  console.log(data, storage.data.article.data);
+
+  const sqlResponse =
+    await sql`INSERT INTO articles (title, subtitle, content, date, publish)
+VALUES ('${title}', '${subtitle}', '${content}', ${date}, ${publish});
+`;
+
+  console.log(sqlResponse);
 
   /*
   const data = await request.formData();
@@ -16,7 +52,9 @@ export async function POST({ request }: RequestEvent) {
     `;
     */
 
-  return new Response(JSON.stringify({ success: true }), { status: 200 });
+  return new Response(JSON.stringify({ success: true, roomId: data.roomId }), {
+    status: 200,
+  });
 }
 
 /*
