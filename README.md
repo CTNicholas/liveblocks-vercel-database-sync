@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/33033422/235533924-823133e2-3f9b-4f62-8c4c-8e5918585995.mp4
+
 ## Vercel database + Liveblocks sync demo
 
 This demo shows you how to use SvelteKit to sync
