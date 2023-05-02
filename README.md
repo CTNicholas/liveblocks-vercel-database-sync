@@ -14,4 +14,6 @@ using [webhooks](https://liveblocks.io/docs/guides/webhooks).
 - Copy your **secret** key from the [dashboard](https://liveblocks.io/dashboard/apikeys)
 - Create an `.env.local` file and add your **secret** key as the `VITE_LIVEBLOCKS_SECRET_KEY` environment
   variable
+- Set up your StorageUpdatedEvent [webhook](https://liveblocks.io/docs/guides/webhooks) on the webhooks [dashboard](https://liveblocks.io/dashboard/)
+- Add the **signing secret** from this page to `.env.local` as the `VITE_WEBHOOK_SECRET` enrivonment variable
 - Run `npm run dev` and go to [http://localhost:5173](http://localhost:5173)
